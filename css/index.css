@@ -1,0 +1,92 @@
+body{
+    text-align: center;
+    font-family: Roboto;
+    background: #F4F5F9;
+    color: #87C3BB;
+}
+
+.body-container{
+    padding: 10%;
+    font-family: Montserrat;
+    font-weight: 500;  
+    font-size: 3rem;
+}
+
+.navbar{
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.navbar-custom {
+    background: #F4F5F9;
+}
+
+.navbar-brand{
+    font-weight: 700;
+    text-align: center;
+    margin-left: 40%;
+    font-size: 2rem;
+}
+
+.navbar-light .navbar-brand{
+    color: #87C3BB;
+  }
+
+.navbar-light .navbar-brand:visited{
+    color: #87C3BB;
+  }
+.vending-machine{
+    margin: auto;
+    width: 100%;
+}
+
+.navbar-toggler{
+    border: none;
+}
+
+.navbar-light .navbar-toggler-icon {
+    width: 50px;
+    height: 50px;
+}
+
+h2{
+    padding: 3%;
+    font-size: 3rem;
+    margin-bottom: 150px;
+}
+
+.login-btn{
+    background-color: #87C3BB; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 32px;
+    margin-bottom: 32px;
+}
+
+.signup-btn{
+    background-color: Transparent; 
+    border: 2px solid #87C3BB;
+    color: #87C3BB;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 32px;
+    margin-bottom: 32px;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    font-size: 2rem;
+    color: #87C3BB;
+}
+
+.navbar-light .navbar-nav .active>.nav-link{
+    font-size: 2rem;
+    color: #87C3BB;
+}
