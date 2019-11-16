@@ -90,3 +90,16 @@ h2{
     font-size: 2rem;
     color: #87C3BB;
 }
+
+.loginbox{
+    padding: 3%;
+    font-family: Roboto;
+    font-weight: 500;  
+    font-size: 2rem;
+    color: black;
+    width: 90%;
+    height: 500px;
+    background: #fff;
+    z-index: 1;
+    position: absolute;
+}
