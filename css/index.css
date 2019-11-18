@@ -106,6 +106,7 @@ h2{
     position: absolute;
     top: 200px;
     left: 5%;
+    display: none;
 }
 
 h3{
