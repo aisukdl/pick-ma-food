@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,500,700&display=swap" rel="stylesheet">
-    </head>
+      </head>
     <body>
       <!--Nav Bar-->
       <nav class="navbar nav navbar-expand-lg navbar-light bg-custom">
@@ -43,11 +43,12 @@
       <div class="body-container">
         <img class="vending-machine" src="images/vending-machine.png">
         <h2>Find your favorite food from vending machine near you. Order now! </h2>
-        <button type="button" class="login-btn">Log In</button>
+        <button type="button" class="login-btn" onclick="openLogin()">Log In</button>
         <button type="button" class="signup-btn">Sign Up</button>
       </div>
-      <div class="loginbox">
+      <div class="loginbox" id="loginbox">
         <h3>LOGIN</h3>
+        <i class="fas fa-times"></i>
         <input type="text" placeholder="USERNAME" name="uname" required>
         <input type="password" placeholder="PASSWORD" name="psw" required>
         <h4><input type="checkbox" checked="checked" name="remember">Remember me</h4>
@@ -55,6 +56,16 @@
         FORGOT PASSWORD? RECOVERY HERE
         OR
         DON'T HAVE AN ACCOUNT? SIGN UP
+      </div>
+      <script>
+        function openLogin() {
+          document.getElementById("loginbox").style.display = "block";
+        }
+        
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+        </script>
 
     </body>
 </html>
