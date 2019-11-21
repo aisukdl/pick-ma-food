@@ -47,5 +47,50 @@ body{
 h2{
     padding: 3%;
     font-size: 1.5rem;
-    margin-bottom: 75px;
+    margin-bottom: 30px;
+}
+
+.findbox{
+    background: #fff;
+    padding: 2%;
+    position: relative;
+    text-align: left;
+    box-shadow: rgba(0,0,0,0.2) 5px 5px 25px;
+    
+}
+
+input[type=text] {
+    width: 100%;
+    height: 40px;
+    padding: 3px 5px;
+    display: inline-block;
+    border: 1px solid #c4c4c4;
+    box-sizing: border-box;
+    font-weight: 500;
+    color: #c4c4c4;
+    font-size: 1rem;
+  }
+
+.fa-location-arrow{
+    position: absolute;
+    top:15px;
+    right: 15px;
+}
+
+.find-btn{
+    background-color: #87C3BB; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 30%;
+    padding: 2.5px 8px;
+    margin-top: 10px ;
+    left: 0px;
+}
+
+p{
+    font-size: 1rem;
+    display: inline;
 }
