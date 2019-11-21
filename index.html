@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pick Ma Food</title>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -44,28 +45,59 @@
         <img class="vending-machine" src="images/vending-machine.png">
         <h2>Find your favorite food from vending machine near you. Order now! </h2>
         <button type="button" class="login-btn" onclick="openLogin()">Log In</button>
-        <button type="button" class="signup-btn">Sign Up</button>
+        <button type="button" class="signup-btn" onclick="openSignup()">Sign Up</button>
       </div>
       <div class="loginbox" id="loginbox">
+        <div class="loginbox2" id="loginbox2">
         <h3>LOGIN</h3>
-        <i class="fas fa-times"></i>
+        <i class="fas fa-times" onclick="closeLogin()"></i>
         <input type="text" placeholder="USERNAME" name="uname" required>
         <input type="password" placeholder="PASSWORD" name="psw" required>
-        <h4><input type="checkbox" checked="checked" name="remember">Remember me</h4>
+        <p><input type="checkbox" checked="checked" name="remember">Remember me</p>
         <button type="button" class="login-btn">Log In</button>
-        FORGOT PASSWORD? RECOVERY HERE
-        OR
-        DON'T HAVE AN ACCOUNT? SIGN UP
+        <p>FORGOT PASSWORD? RECOVERY HERE</p>
+        <p>OR</p>
+        <p>DON'T HAVE AN ACCOUNT? SIGN UP</p>
+        </div>
       </div>
+
+      <div class="loginbox" id="signupbox">
+          <div class="loginbox2" id="signupbox2">
+          <h3>SIGN UP</h3>
+          <i class="fas fa-times" onclick="closeSignup()"></i>
+          <input type="text" placeholder="USERNAME" name="uname" required>
+          <input type="password" placeholder="PASSWORD" name="psw" required>
+          <input type="password" placeholder="CONFIRM PASSWORD" name="psw" required>
+          <input type="text" placeholder="FULLNAME" name="fname" required>
+          <input type="text" placeholder="PHONE NUMBER" name="phone" required>
+          <button type="button" class="login-btn">Sign Up</button>
+          <p>OR</p>
+          <p>ALREADY HAVE AN ACCOUNT? LOG IN</p>
+          </div>
+        </div>
+      
       <script>
         function openLogin() {
           document.getElementById("loginbox").style.display = "block";
+          document.getElementById("loginbox2").style.display = "block";
         }
         
-        function closeForm() {
-          document.getElementById("myForm").style.display = "none";
+        function closeLogin() {
+          document.getElementById("loginbox").style.display = "none";
+          document.getElementById("loginbox2").style.display = "none";
+        }
+
+        function openSignup() {
+          document.getElementById("signupbox").style.display = "block";
+          document.getElementById("signupbox2").style.display = "block";
+        }
+
+        function closeSignup() {
+          document.getElementById("signupbox").style.display = "none";
+          document.getElementById("signupbox2").style.display = "none";
         }
         </script>
+        
 
     </body>
 </html>
