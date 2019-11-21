@@ -9,7 +9,7 @@ body{
     padding: 10%;
     font-family: Montserrat;
     font-weight: 500;  
-    font-size: 3rem;
+    font-size: 1.5rem;
 }
 
 .navbar{
@@ -24,8 +24,8 @@ body{
 .navbar-brand{
     font-weight: 700;
     text-align: center;
-    margin-left: 40%;
-    font-size: 2rem;
+    margin-left: 35%;
+    font-size: 1rem;
 }
 
 .navbar-light .navbar-brand{
@@ -44,15 +44,10 @@ body{
     border: none;
 }
 
-.navbar-light .navbar-toggler-icon {
-    width: 50px;
-    height: 50px;
-}
-
 h2{
     padding: 3%;
-    font-size: 3rem;
-    margin-bottom: 150px;
+    font-size: 1.5rem;
+    margin-bottom: 75px;
 }
 
 .login-btn{
@@ -64,8 +59,8 @@ h2{
     display: inline-block;
     border-radius: 10px;
     width: 100%;
-    padding: 10px 32px;
-    margin-bottom: 32px;
+    padding: 5px 16px;
+    margin-bottom: 16px;
 }
 
 .signup-btn{
@@ -77,50 +72,47 @@ h2{
     display: inline-block;
     border-radius: 10px;
     width: 100%;
-    padding: 10px 32px;
-    margin-bottom: 32px;
+    padding: 5px 16px;
+    margin-bottom: 16px;
 }
 
 .navbar-light .navbar-nav .nav-link{
-    font-size: 2rem;
+    font-size: 1rem;
     color: #87C3BB;
 }
 
 .navbar-light .navbar-nav .active>.nav-link{
-    font-size: 2rem;
+    font-size: 1rem;
     color: #87C3BB;
 }
 
 .loginbox{
-    padding-top: 3%;
-    padding-left: 10%;
-    padding-right:10% ;
     font-family: Roboto;
     font-weight: 500;  
-    font-size: 2rem;
+    font-size: 1rem;
     color: black;
     width: 90%;
-    height: 700px;
     background: #fff;
     z-index: 1;
     position: absolute;
-    top: 200px;
+    top: 10%;
     left: 5%;
     display: none;
+    box-shadow: rgba(0,0,0,0.2) 5px 5px 25px;
 }
 
 h3{
     padding: 3%;
-    font-size: 3rem;
+    font-size: 1.5rem;
     margin-bottom: 15px;
     font-weight: 500;
 }
 
 input[type=text], input[type=password] {
     width: 100%;
-    height: 100px;
-    padding: 12px 20px;
-    margin: 15px 0;
+    height: 50px;
+    padding: 6px 10px;
+    margin: 7.5px 0;
     display: inline-block;
     border: 1px solid #c4c4c4;
     border-radius:10px ;
@@ -128,4 +120,27 @@ input[type=text], input[type=password] {
     font-weight: 500;
     color: #c4c4c4;
   }
+
+.fa-times{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.loginbox2{
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right:10% ;
+    position: relative;
+}
+
+input [type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+p{
+    margin-bottom: 10px;
+}
+
 
