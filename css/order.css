@@ -1,0 +1,26 @@
+body{
+    text-align: center;
+    font-family: Roboto;
+    background: #F4F5F9;
+    color: #87C3BB;
+}
+
+.header{
+    padding: 1%;
+    font-family: Montserrat;
+    font-weight: 500;  
+    position: relative;
+    padding-bottom: 10px;
+    box-shadow: rgba(0,0,0,0.2) 5px 5px 25px;
+}
+
+h2{
+    padding: 3%;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.fa-times{
+    position: absolute;
+    top: 10px;
+}
