@@ -6,21 +6,60 @@ body{
 }
 
 .header{
-    padding: 1%;
     font-family: Montserrat;
     font-weight: 500;  
     position: relative;
-    padding-bottom: 10px;
     box-shadow: rgba(0,0,0,0.2) 5px 5px 25px;
 }
 
 h2{
     padding: 3%;
     font-size: 1rem;
-    margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .fa-times{
     position: absolute;
     top: 10px;
+    right: 10px;
+}
+
+.machine{
+    background-color: #fff;
+}
+
+.products{
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+}
+
+p{
+    left: 10px;
+    color: rgba(0,0,0,0.5);
+    font-weight: 700;
+}
+
+.image{
+    width: 40%;
+}
+
+.price{
+    width:60%;
+}
+
+.find-btn{
+    background-color: #87C3BB; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 32px;
+    margin-top: 10px ;
+    position: fixed;
+    bottom: 0px;
+    left:0px;
+
 }
