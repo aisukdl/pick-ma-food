@@ -1,0 +1,38 @@
+body{
+    text-align: center;
+    font-family: Roboto;
+    background: #F4F5F9;
+    color: #87C3BB;
+}
+
+.header{
+    font-family: Montserrat;
+    font-weight: 500;  
+    position: relative;
+    box-shadow: rgba(0,0,0,0.2) 5px 5px 25px;
+}
+
+h2{
+    padding: 3%;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.nav-btn{
+    background-color: #87C3BB; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 80%;
+    padding: 10px 32px;
+    margin-top: 10px ;
+}
+
+.qrbox{
+    width: 80%;
+    box-shadow: rgba(0,0,0,0.2) 5px 5px 25px;
+    margin:auto;
+    padding: 3%;
+}
