@@ -44,3 +44,17 @@ input[type=text]{
     position: absolute;
     top: 10px;
 }
+
+.select-btn{
+    background-color: #87C3BB; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    padding: 2.5px 8px;
+    margin-top: 10px ;
+    left: 0px;
+    display:none;
+}
