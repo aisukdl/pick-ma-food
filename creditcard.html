@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>     
+<body>
+      <form action="payment.php" method ="POST">
+            <h3>Payment</h3>
+            Accepted Cards<br>
+            Name on Card
+            <input type="varchar" id="name" name="name" required pattern="[a-zA-Z]+" placeholder="John More Doe" required >
+            <br>Credit card number
+            <input type="int" id="ccnum" name="cardNo" required pattern="[0-9]+"placeholder="1111222233334444" required>
+            <br>Exp Month
+            <input type="number" id="expmonth" size="2"  name="expMM" max="12" min="1" placeholder="01" required>
+            <br>Exp Year
+            <input type="number" id="expyear" size="4" name="expYYYY" max="2200" min="2000" placeholder="2018" required>
+            <br>CVV
+            <input type="int" id="cvv" name="cvv" equired pattern="[0-9]+" placeholder="352" required> <br>
+            <button>submit</button>
+            </form>
+</body>
+</html>

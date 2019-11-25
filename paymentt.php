@@ -59,7 +59,6 @@
                             <div class="pickup">
                                 <i class="far fa-money-bill-alt fa-3x"></i>
                                 <br>
-                               
                                 <a href="qrcodee.html">Pay on pick up</a>
                             </div>
                             
@@ -75,6 +74,8 @@
                     </div>
                 </div>
                 <h2>Your Order</h2>
+
+
                 <!--เริ่มลูปphpตรงนี้-->
                 <div class="products">
                         <div class="image">
@@ -85,6 +86,9 @@
                         </div>
                     </div>
                 <!--จบลูป-->
+
+
+
             </body>
         </html>ly=Montserrat|Roboto:400,500,700&display=swap" rel="stylesheet">
     </head>
