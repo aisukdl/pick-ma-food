@@ -42,7 +42,7 @@ body{
 
 .navbar-toggler{
     border: none;
-    display: hidden;
+    display: none;
 }
 
 h2{
