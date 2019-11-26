@@ -1,0 +1,36 @@
+body{
+    text-align: center;
+    font-family: Roboto;
+    background: #F4F5F9;
+    color: #87C3BB;
+}
+
+.body-container{
+    padding: 10%;
+    font-family: Montserrat;
+    font-weight: 500;
+}
+
+h2{
+    padding: 3%;
+    font-size: 1rem;
+}
+
+.fa-times{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.submit-btn{
+    background-color: #87C3BB; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px;
+    width: 100%;
+    padding: 5px 16px;
+    margin-bottom: 16px;
+}
