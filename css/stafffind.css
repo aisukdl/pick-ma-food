@@ -52,11 +52,11 @@ input[type=text]{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    width: 100%;
+    width: 80%;
     padding: 2.5px 8px;
     margin-top: 10px ;
     left: 0px;
-    display:none;
+    border-radius: 10px;
 }
 
 .delete-btn{
@@ -66,9 +66,20 @@ input[type=text]{
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    width: 100%;
+    width: 80%;
     padding: 2.5px 8px;
     margin-top: 10px ;
     left: 0px;
-    display:none;
+    border-radius: 10px;
+}
+
+.popup{
+    background: #fff;
+    width:90%;
+}
+.body-container{
+    padding: 10%;
+    font-family: Montserrat;
+    font-weight: 500;  
+    font-size: 1.5rem;
 }
