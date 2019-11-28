@@ -64,3 +64,9 @@ input[type=text] {
     color: #c4c4c4;
     font-size: 1rem;
   }
+
+  .add{
+      position: fixed;
+      bottom: 10px;
+      right:10px
+  }
