@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Products</title>
+	<title>Products Available</title>
 	<style>
+		
 	.content{
   width:200px;
   text-align: center;
@@ -34,20 +35,12 @@ img {
   padding: 5px;
 }
 
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-  align-self: center;
-}
 .add{
 	align-self: center;
 	align-items: center;
 	text-align: center;
 	font-size: 16px;
 	border: none;
-	cursor: pointer;
 	font-family: Arial, Helvetica, sans-serif;
 	}
 	.button {
@@ -67,20 +60,18 @@ img {
 	</style>
 </head>
 <body>
-	 <a href="cartName.php" class="button">Cart</a>
-<?php 
-
+ <a href="cartProd.php" class="button">Cart</a>
+<?php
+session_start();
 $con=mysqli_connect('localhost','root','','pickmafood'); 
 // Check connection 
 if (mysqli_connect_errno()) 
 	{ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-	session_start();
-	if(isset($_POST["Done"]))
-	{
-		$_SESSION["machID"] = mysqli_real_escape_string($con, $_POST['vName']);
-		unset($_SESSION["shopping_cart"]);
-	}
-
+				if(isset($_POST['Done2']))
+					{
+					$_SESSION["machID"] =$_POST['vName2'];
+					unset($_SESSION["shopping_cart"]);
+					}
 				$machID = $_SESSION["machID"];
 				$sql = "SELECT p.*, mp.stock AS stock FROM product AS p,machineProd AS mp WHERE mp.machineID = '$machID' AND mp.productID = p.productID AND stock > 0";
 				$res = mysqli_query($con,$sql);
@@ -103,20 +94,22 @@ if (mysqli_connect_errno())
 								</div>
 								<br><div class = add> <div class="price"> <?php echo $row['price']; ?> &nbsp;THB</div><br>
 								<form  method = "post">
-								<input type="number" name="quantity"  value="1" min="1" max="<?php echo $row['stock']; ?>">
+								<input type="number" name="quantity" value="1" min="1" max="<?php echo $row['stock']; ?>">
 								<input type="hidden" name="id" value="<?php echo $row['productID']; ?>">
-								<br><input class="button" type="submit" name="submit" value="Add to cart">
+								<br><input class="button" type="submit" name="submit2" value="Add to cart">
 								</form></div></div></div>
+
 								<?php
 								}
-					}
+							}
 					else
 							{
 							echo "No products available";	
 							}
 				}
-
-if(isset($_POST['submit'])) 
+				if(isset($_SESSION["test"]))
+				{
+					if(isset($_POST['submit2'])) 
 									{
 										if(isset($_SESSION["shopping_cart"]))
 										{
@@ -136,15 +129,18 @@ if(isset($_POST['submit']))
 												echo '<script>alert("Item Already Added")</script>';
 											}
 										}
-										else
+							}
+					else
 										{
-											$item_array = array('item_id' => $_POST["id"],
-																'order_quan' => $_POST["quantity"]);
+											$item_array = array('item_id' => $_SESSION["prodID"],
+																'order_quan' => 1);
 											$_SESSION["shopping_cart"][0] = $item_array;
-											
+											//unset($_SESSION["prodID"]);
 										}
-							}	
- mysqli_close($con);
- ?>
+				}
+
+mysqli_close($con);
+?>
+
 </body>
 </html>

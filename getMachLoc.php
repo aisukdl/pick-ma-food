@@ -1,54 +1,57 @@
 <!DOCTYPE html>
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>Select Vending Machine</title>
-    <style>
+<html>
+<head>
+	<title>Select Machine</title>
+	    <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
         height: 900px;
       }
     </style>
-  </head>
-
-<html>
-  <body>
-    <div id="map"></div>
+</head>
+<body>
+	<div id="map"></div>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcdvv5F6Ub6cqL644aR8VK3MW7YQcyCvE&callback=initMap">
     </script>
-      <?php 
-         $con=mysqli_connect('localhost','root','','pickmafood'); 
-    // Check connection 
-      if (mysqli_connect_errno()) 
-      { echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-
-     $sql = "SELECT machineID,machineName,lat,lng FROM machine";
-     $result = mysqli_query($con,$sql);
-     if (!$result) 
-      {
-      die('Error: ' . mysqli_error($con)); }
-    else
-      {
-      if(mysqli_num_rows($result)>0)
+<?php
+session_start();
+if(isset($_POST['submit'])) 
+ {
+ 	$_SESSION["prodID"] = $_POST['id'];
+  $_SESSION["test"] = 1;
+ 	$pID = $_POST['id'];
+ $con=mysqli_connect('localhost','root','','pickmafood'); 
+// Check connection 
+if (mysqli_connect_errno()) 
+	{ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
+	$sql = "SELECT * FROM machine AS m, machineprod AS mp WHERE mp.productID = '$pID' AND mp.machineID = m.machineID";
+	$res = mysqli_query($con,$sql);
+	if (!$res) 
+		{
+		die('Error: ' . mysqli_error($con)); } 
+	else
+	{
+		if(mysqli_num_rows($res)>0)
           {
             $rows = array();
             $i = 0;
-            while($res = mysqli_fetch_assoc($result)) 
+            while($row = mysqli_fetch_assoc($res)) 
               {
-                $r = array('id' => $res['machineID'],
-                  'name' => $res['machineName'],
-            'lat' => $res['lat'],
-            'lng' => $res['lng']);
+                $r = array('id' => $row['machineID'],
+                  'name' => $row['machineName'],
+            'lat' => $row['lat'],
+            'lng' => $row['lng']);
                 $rows[$i] = $r;
                 $i = $i + 1; 
               }
           }
-      }
-mysqli_close($con); 
-?>
-    <script>
+	}
+ }
+mysqli_close($con);
+ ?>
+ <script>
       var map;
       var mID = 0;
         function initMap() {
@@ -67,12 +70,6 @@ mysqli_close($con);
 		        	    		var latitude = <?php echo $v['lat']; ?>;
 								      var longitude = <?php echo $v['lng']; ?>;
                       locations.push([data,latitude,longitude]);
-		        	    		/*marker = new google.maps.Marker({
-		            	        position: new google.maps.LatLng(latitude,longitude), //
-                          title: "<?php /*echo $v["id"]; */?>",
-		            	        map: map
-		            	    });
-                      markerArray.push(marker);*/
 	<?php
 		} ?>
     for (var i = 0; i < locations.length; i++) {
@@ -93,7 +90,7 @@ mysqli_close($con);
     }
 }
      </script>
-	<form action="prodVendLoc.php" method="post" onsubmit="return midCheck();">
+     	<form action="prodByProd.php" method="post" onsubmit="return midCheck();">
     <input type="hidden" name="vName2" id="vid">
     <br><br><input type="submit" id="sub" name="Done2">
   </form>
@@ -111,6 +108,6 @@ mysqli_close($con);
       }
       return true;
     }
-  </script>
-  </body>
+</script>
+</body>
 </html>

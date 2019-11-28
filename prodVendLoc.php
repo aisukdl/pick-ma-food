@@ -47,7 +47,6 @@ img {
 	text-align: center;
 	font-size: 16px;
 	border: none;
-	cursor: pointer;
 	font-family: Arial, Helvetica, sans-serif;
 	}
 	.button {
@@ -67,7 +66,7 @@ img {
 	</style>
 </head>
 <body>
-	 <a href="cart.php" class="button">Cart</a>
+	 <a href="cartLoc.php" class="button">Cart</a>
 <?php
 session_start();
 $con=mysqli_connect('localhost','root','','pickmafood'); 
@@ -77,6 +76,7 @@ if (mysqli_connect_errno())
 				if(isset($_POST['Done2']))
 					{
 					$_SESSION["machID"] =$_POST['vName2'];
+					unset($_SESSION["shopping_cart"]);
 					}
 				$machID = $_SESSION["machID"];
 				$sql = "SELECT p.*, mp.stock AS stock FROM product AS p,machineProd AS mp WHERE mp.machineID = '$machID' AND mp.productID = p.productID AND stock > 0";
@@ -91,58 +91,21 @@ if (mysqli_connect_errno())
 							echo '<div class="row">';
 							while($row = mysqli_fetch_array($res))
 								{?>
-								<form  method = "post">
 								<div class="column">
 								<div class = "box">
-								<img src= "data:image/jpeg;base64, <?php echo base64_encode($row['image']); ?>">
+								<img src= "data:image/jpeg;base64, <?php echo base64_encode($row['image']); ?>"><br>
 								<div class="content">
-									<div class = "brand"> <?php echo  $row['brand']; ?> </div><br>
-									<div class = "name"> <?php echo $row['productName']; ?></div> <br>
+									<div class = "brand"> <?php echo  $row['brand']; ?> </div>
+									<div class = "name"> <?php echo $row['productName']; ?></div>
 								</div>
 								<br><div class = add> <div class="price"> <?php echo $row['price']; ?> &nbsp;THB</div><br>
-								<input type="number" name="quantity" min="1" max="<?php echo $row['stock']; ?>">
+								<form  method = "post">
+								<input type="number" name="quantity" value="1" min="1" max="<?php echo $row['stock']; ?>">
 								<input type="hidden" name="id" value="<?php echo $row['productID']; ?>">
-								<input type="hidden" name="price" value="<?php echo $row['price']; ?>">
-								<input type="hidden" name="name" value="<?php echo $row['productName']; ?>">
-								<input type="hidden" name="brand" value="<?php echo $row['brand']; ?>">
-								<br><input class="btn" type="submit" name="submit2" value="Add to cart">
-								</div></div></div></form>
+								<br><input class="button" type="submit" name="submit2" value="Add to cart">
+								</form></div></div></div>
 
 								<?php
-									if(isset($_POST['submit2'])) 
-									{
-										if(isset($_SESSION["shopping_cart"]))
-										{
-										$item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
-										if(!in_array($_POST["id"], $item_array_id))
-											{
-												$count = count($_SESSION["shopping_cart"]);
-												$item_array = array(
-													'item_id' => $_POST["id"],
-													'item_price' => $_POST["price"],
-													'item_name' => $_POST["name"],
-													'item_brand' => $_POST["brand"],
-													'order_quan' => $_POST["quantity"]
-												);
-												$_SESSION["shopping_cart"][$count] = $item_array;
-											}
-											else
-											{
-												echo '<script>alert("Item Already Added")</script>';
-											}
-										}
-
-										else
-										{
-											$item_array = array('item_id' => $_POST["id"],
-																'item_price' => $_POST["price"],
-																'item_name' => $_POST["name"],
-																'item_brand' => $_POST["brand"],
-																'order_quan' => $_POST["quantity"]);
-											$_SESSION["shopping_cart"][0] = $item_array;
-										}
-
-							}
 								}
 							}
 					else
@@ -150,6 +113,34 @@ if (mysqli_connect_errno())
 							echo "No products available";	
 							}
 				}
+				if(isset($_POST['submit2'])) 
+									{
+										if(isset($_SESSION["shopping_cart"]))
+										{
+											$item_array_id = array_column($_SESSION["shopping_cart"], "item_id");
+										if(!in_array($_POST["id"], $item_array_id))
+											{
+												$count = count($_SESSION["shopping_cart"]);
+													$item_array = array(
+													'item_id' => $_POST["id"],
+													'order_quan' => $_POST["quantity"]);
+													$_SESSION["shopping_cart"][$count] = $item_array;
+										}
+
+											
+											else
+											{
+												echo '<script>alert("Item Already Added")</script>';
+											}
+										}
+										else
+										{
+											$item_array = array('item_id' => $_POST["id"],
+																'order_quan' => $_POST["quantity"]);
+											$_SESSION["shopping_cart"][0] = $item_array;
+											
+										}
+							}
 
 mysqli_close($con);
 ?>
