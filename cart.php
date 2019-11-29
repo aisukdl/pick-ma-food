@@ -133,7 +133,7 @@ if(isset($_POST["sub"]))
 				?>
 				<script> document.getElementById("q").value = <?php echo $_POST["quan"]; ?></script>
 				<?php
-				echo '<script>window.location="cartLoc.php"</script>';
+				echo '<script>window.location="cart.php"</script>';
 			}
 		}
 }
