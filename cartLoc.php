@@ -17,6 +17,21 @@
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
 }
+input[type=submit] {
+  float: right;
+  background-color: #e7e7e7;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
 img{
 	width: 100px;
 	height: 100px;
@@ -96,6 +111,7 @@ if(!empty($_SESSION["shopping_cart"]))
 							echo "<td></td>";
 							echo "</tr>";
 				}
+				
 	if(isset($_GET["action"]))
 {
 	if($_GET["action"] == "delete")
@@ -128,8 +144,13 @@ if(isset($_POST["sub"]))
 
 mysqli_close($con);
  ?>
+ </table>
+ <form action="Orderdb.php" method = "post">
+	 <input type="hidden" name="tot" value="<?php echo $total;?>">
+	 <input  type="submit"  name="sub" value="Confirm Order">
+ </form>
 
-</table>
+
 </div>
 
 </body>
