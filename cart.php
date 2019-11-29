@@ -95,7 +95,7 @@ if(!empty($_SESSION["shopping_cart"]))
 									$tot = 0;
 									$tot = number_format($values["order_quan"] * $row['price'], 2);
 									echo "<td>". $tot ." THB</td>";?>
-									<td> <a href='cartLoc.php?action=delete&id=<?php echo $pID; ?>'> <span class='text-danger'> Remove </span></a></td>
+									<td> <a href='cart.php?action=delete&id=<?php echo $pID; ?>'> <span class='text-danger'> Remove </span></a></td>
 									<?php
 									$total = $total + $tot;
 									echo "</tr>";
@@ -118,7 +118,7 @@ if(!empty($_SESSION["shopping_cart"]))
 			{
 				unset($_SESSION["shopping_cart"][$keys]);
 				echo '<script>alert("Item Removed")</script>';
-				echo '<script>window.location="cartLoc.php"</script>';
+				echo '<script>window.location="cart.php"</script>';
 			}
 		}
 	}

@@ -67,7 +67,9 @@ $con=mysqli_connect('localhost','root','','pickmafood');
 // Check connection 
 if (mysqli_connect_errno()) 
 	{ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-	$sql = "SELECT * FROM product";
+if(isset($_SESSION["user"]))
+{
+		$sql = "SELECT * FROM product";
 	$res = mysqli_query($con,$sql);
 	if (!$res) 
 		{
@@ -94,6 +96,7 @@ if (mysqli_connect_errno())
 								}
 							}
 	}
+}
 
 mysqli_close($con);
  ?>

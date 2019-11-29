@@ -67,20 +67,21 @@ img {
 	</style>
 </head>
 <body>
-	 <a href="cartName.php" class="button">Cart</a>
 <?php 
-
+session_start();
 $con=mysqli_connect('localhost','root','','pickmafood'); 
 // Check connection 
 if (mysqli_connect_errno()) 
-	{ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-	session_start();
+	{ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } ?>
+	<a href="cart.php" class="button">Cart</a>
+<?php
 	if(isset($_POST["Done"]))
 	{
 		$_SESSION["machID"] = mysqli_real_escape_string($con, $_POST['vName']);
 		unset($_SESSION["shopping_cart"]);
 	}
-
+	if(isset($_SESSION["machID"]))
+		{
 				$machID = $_SESSION["machID"];
 				$sql = "SELECT p.*, mp.stock AS stock FROM product AS p,machineProd AS mp WHERE mp.machineID = '$machID' AND mp.productID = p.productID AND stock > 0";
 				$res = mysqli_query($con,$sql);
@@ -115,6 +116,11 @@ if (mysqli_connect_errno())
 							echo "No products available";	
 							}
 				}
+		}
+		else
+					{
+						echo "<script> window.location.href = 'home.php';</script>";
+					}
 
 if(isset($_POST['submit'])) 
 									{
