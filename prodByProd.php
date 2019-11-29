@@ -60,7 +60,7 @@ img {
 	</style>
 </head>
 <body>
- <a href="cartProd.php" class="button">Cart</a>
+ <a href="cart.php" class="button">Cart</a>
 <?php
 session_start();
 $con=mysqli_connect('localhost','root','','pickmafood'); 
@@ -72,6 +72,8 @@ if (mysqli_connect_errno())
 					$_SESSION["machID"] =$_POST['vName2'];
 					unset($_SESSION["shopping_cart"]);
 					}
+				if(isset($_SESSION["machID"]))
+				{
 				$machID = $_SESSION["machID"];
 				$sql = "SELECT p.*, mp.stock AS stock FROM product AS p,machineProd AS mp WHERE mp.machineID = '$machID' AND mp.productID = p.productID AND stock > 0";
 				$res = mysqli_query($con,$sql);
@@ -107,6 +109,11 @@ if (mysqli_connect_errno())
 							echo "No products available";	
 							}
 				}
+				}
+				else
+				{
+					echo "<script> window.location.href = 'home.php';</script>";
+				}
 				if(isset($_SESSION["test"]))
 				{
 					if(isset($_POST['submit2'])) 
@@ -137,6 +144,7 @@ if (mysqli_connect_errno())
 											$_SESSION["shopping_cart"][0] = $item_array;
 											//unset($_SESSION["prodID"]);
 										}
+					unset($_SESSION["test"]);
 				}
 
 mysqli_close($con);
