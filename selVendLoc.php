@@ -19,12 +19,15 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcdvv5F6Ub6cqL644aR8VK3MW7YQcyCvE&callback=initMap">
     </script>
       <?php 
+      session_start();
          $con=mysqli_connect('localhost','root','','pickmafood'); 
     // Check connection 
       if (mysqli_connect_errno()) 
       { echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
 
-     $sql = "SELECT machineID,machineName,lat,lng FROM machine";
+    if(isset($_SESSION["user"]))
+    {
+           $sql = "SELECT machineID,machineName,lat,lng FROM machine";
      $result = mysqli_query($con,$sql);
      if (!$result) 
       {
@@ -46,6 +49,7 @@
               }
           }
       }
+    }
 mysqli_close($con); 
 ?>
     <script>
@@ -95,7 +99,7 @@ mysqli_close($con);
      </script>
 	<form action="prodVendLoc.php" method="post" onsubmit="return midCheck();">
     <input type="hidden" name="vName2" id="vid">
-    <br><br><input type="submit" id="sub" name="Done2">
+    <br><br><input type="submit" id="sub" name="Done2" value="Select">
   </form>
   <script>
     

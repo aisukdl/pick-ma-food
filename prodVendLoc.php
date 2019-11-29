@@ -66,19 +66,24 @@ img {
 	</style>
 </head>
 <body>
-	 <a href="cartLoc.php" class="button">Cart</a>
 <?php
 session_start();
 $con=mysqli_connect('localhost','root','','pickmafood'); 
 // Check connection 
 if (mysqli_connect_errno()) 
 	{ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-				if(isset($_POST['Done2']))
+						?>
+						<a href="cart.php" class="button">Cart</a>
+						 <?php
+					if(isset($_POST['vName2']))
 					{
-					$_SESSION["machID"] =$_POST['vName2'];
-					unset($_SESSION["shopping_cart"]);
+						$_SESSION["machID"] =$_POST['vName2'];
+						unset($_SESSION["shopping_cart"]);
 					}
-				$machID = $_SESSION["machID"];
+
+					if(isset($_SESSION["machID"]))
+					{
+										$machID = $_SESSION["machID"];
 				$sql = "SELECT p.*, mp.stock AS stock FROM product AS p,machineProd AS mp WHERE mp.machineID = '$machID' AND mp.productID = p.productID AND stock > 0";
 				$res = mysqli_query($con,$sql);
 				if (!$res) 
@@ -113,6 +118,12 @@ if (mysqli_connect_errno())
 							echo "No products available";	
 							}
 				}
+					}
+					else
+					{
+						echo "<script> window.location.href = 'selVendLoc.php';</script>";
+					}
+
 				if(isset($_POST['submit2'])) 
 									{
 										if(isset($_SESSION["shopping_cart"]))
