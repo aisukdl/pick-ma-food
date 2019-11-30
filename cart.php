@@ -13,6 +13,13 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,500,700&display=swap" rel="stylesheet">
     </head>
     <body>
+            <?php 
+            session_start();
+            $con=mysqli_connect('localhost','root','','pickmafood'); 
+            // Check connection 
+            if (mysqli_connect_errno()) 
+                { echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
+            ?>
         <div class="header">
             <h2>PICK MA FOOD</h2>
             <i class="fas fa-times"></i>
