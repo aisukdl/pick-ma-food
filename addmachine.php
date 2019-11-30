@@ -24,7 +24,7 @@
         <br><br>
         <p>Machine Location</p>
     </div>
-    <div id="map" style="height: 600px; width: 700px; margin: auto; border: 1px;" ></div>
+    <div id="map" style="height: 400px; width: 80%; margin: auto; border: 1px;" ></div>
     <br><br>
 
     <script>
