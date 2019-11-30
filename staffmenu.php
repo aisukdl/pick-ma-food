@@ -17,20 +17,20 @@
         <div class="avatar">
                 /*คิวรี่รูป*/
         </div>
-        <?php 
+        <?php
         session_start();
-        $con=mysqli_connect('localhost','root','','pickmafood'); 
-        // Check connection 
-        if (mysqli_connect_errno()) 
-            { echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
+        $con=mysqli_connect('localhost','root','','pickmafood');
+        // Check connection
+        if (mysqli_connect_errno())
+            { echo "Failed to connect to MySQL: " . mysqli_connect_error(); }
         if(isset($_SESSION["uName"]))
             {
                 $sql = "SELECT * FROM staff WHERE staffID LIKE '".$_SESSION["uName"]."' LIMIT 1";
                 $res = mysqli_query($con,$sql);
-                if (!$res) 
+                if (!$res)
                     {
                         die('Error: ' . mysqli_error($con));
-                     } 
+                     }
                 else
                     {
                         if(mysqli_num_rows($res)==1)
@@ -44,7 +44,7 @@
          <?php
                         }
                     }
-            } 
+            }
             mysqli_close($con);
             ?>
         <div class="cont2">
