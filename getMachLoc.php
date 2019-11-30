@@ -92,7 +92,7 @@ mysqli_close($con);
      </script>
      	<form action="prodByProd.php" method="post" onsubmit="return midCheck();">
     <input type="hidden" name="vName2" id="vid">
-    <br><br><input type="submit" id="sub" name="Done2">
+    <br><br><input type="submit" id="sub" name="Done2" value="Select">
   </form>
   <script>
     

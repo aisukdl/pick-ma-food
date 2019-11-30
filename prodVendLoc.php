@@ -2,83 +2,41 @@
 <html>
 <head>
 	<title>Products</title>
-	<style>
-	.content{
-  width:200px;
-  text-align: center;
-  display:block;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  align-self: center;
-	}
-	.box{
-  width: auto;
-  height: 423px;
-  margin: 80px auto;
-  background: #FFFFFF;
-  border-radius: 6px;
- 
-  display: flex;
-  flex-direction: column;
-
-	}	
-img {
-  max-width:210px;
-  max-height: 280px;
-  float: center;
-  align-self: center;
-}
-.column {
-  float: left;
-  width: 350px;
-  padding: 5px;
-}
-
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-  align-self: center;
-}
-.add{
-	align-self: center;
-	align-items: center;
-	text-align: center;
-	font-size: 16px;
-	border: none;
-	font-family: Arial, Helvetica, sans-serif;
-	}
-	.button {
-  float: right;
-  background-color: #e7e7e7;
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  font-family: Arial, Helvetica, sans-serif;
-}
-	</style>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pick Ma Food</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/ProdVendLoc.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,500,700&display=swap" rel="stylesheet">
 </head>
 <body>
-	 <a href="cartLoc.php" class="button">Cart</a>
+<div class="header">
+            <h2>PICK MA FOOD</h2>
+            <i class="fas fa-times"></i>
+</div>
+<div class="body-container">
 <?php
 session_start();
 $con=mysqli_connect('localhost','root','','pickmafood'); 
 // Check connection 
 if (mysqli_connect_errno()) 
 	{ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-				if(isset($_POST['Done2']))
+						?>
+						<a href="cart.php" class="button">Cart</a>
+						 <?php
+					if(isset($_POST['vName2']))
 					{
-					$_SESSION["machID"] =$_POST['vName2'];
-					unset($_SESSION["shopping_cart"]);
+						$_SESSION["machID"] =$_POST['vName2'];
+						unset($_SESSION["shopping_cart"]);
 					}
-				$machID = $_SESSION["machID"];
+
+					if(isset($_SESSION["machID"]))
+					{
+										$machID = $_SESSION["machID"];
 				$sql = "SELECT p.*, mp.stock AS stock FROM product AS p,machineProd AS mp WHERE mp.machineID = '$machID' AND mp.productID = p.productID AND stock > 0";
 				$res = mysqli_query($con,$sql);
 				if (!$res) 
@@ -113,6 +71,12 @@ if (mysqli_connect_errno())
 							echo "No products available";	
 							}
 				}
+					}
+					else
+					{
+						echo "<script> window.location.href = 'selVendLoc.php';</script>";
+					}
+
 				if(isset($_POST['submit2'])) 
 									{
 										if(isset($_SESSION["shopping_cart"]))
@@ -144,5 +108,6 @@ if (mysqli_connect_errno())
 
 mysqli_close($con);
 ?>
+</div>
 </body>
 </html>

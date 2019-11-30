@@ -1,34 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 <?php
 session_start();
 $con=mysqli_connect('localhost','root','','pickmafood'); 
 // Check connection 
 if (mysqli_connect_errno()) { echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-if(isset($_POST['sub']))
+if(isset($_POST['sub']) && isset($_SESSION["user"]))
 {
 $total = mysqli_real_escape_string($con,$_POST['tot']);
 // echo $total;
-$sql="INSERT INTO orderinfo  VALUES ('','','$total','','')";
+$uid = $_SESSION['user'];
+$sql="INSERT INTO orderinfo (userName,total,payMethod)  VALUES ('$uid','$total','NONE')";
 $insert = mysqli_query($con,$sql);
 if (!$insert) { die('Error: ' . mysqli_error($con)); } 
-else{ echo ("total added!");
-	foreach($_SESSION["shopping_cart"] as $keys => $values)
+else{ 
+	$sqlID = "SELECT orderID FROM orderinfo WHERE userName LIKE '$uid' ORDER BY orderID DESC LIMIT 1";
+	$res = mysqli_query($con,$sqlID);
+	if(mysqli_num_rows($res)==1)
+	{
+		$result = mysqli_fetch_assoc($res);
+		foreach($_SESSION["shopping_cart"] as $keys => $values)
 	{
 		$id = $values["item_id"];
 		$quantity = $values["order_quan"];
-		$sql1="INSERT INTO orderprod  VALUES ('','$id','$quantity')";
-		$insert = mysqli_query($con,$sql1);
-		if (!$insert) { die('Error: ' . mysqli_error($con)); } 
-		else {echo ("quantity added");}
+		$sql1="INSERT INTO orderprod (orderID,productID,quantity)  VALUES ('".$result["orderID"]."','$id','$quantity')";
+		$insert1 = mysqli_query($con,$sql1);
+		if (!$insert1) { die('Error: ' . mysqli_error($con)); } 
+	
 	}
-		//$total =  $total + ($values["order_quan"] * $values["item_price"]);
+			$_SESSION["orderID"] = $result["orderID"];
+			echo '<script>window.location="payment.html"</script>';
+	}
+		
 	}
 }
-// foreach($_SESSION["shopping_cart"] as $keys => $values)
-// {
-// 	$quantity = $values["order_quan"];
-// 	$total =  $total + ($values["order_quan"] * $values["item_price"]);
-// }
-
 mysqli_close($con);
  ?>
 

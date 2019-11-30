@@ -1,7 +1,15 @@
 <!DOCTYPE html>
   <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick Ma Food</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,500,700&display=swap" rel="stylesheet">
     <title>Select Vending Machine</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
@@ -14,17 +22,24 @@
 
 <html>
   <body>
+  <div class="header">
+            <h2>PICK MA FOOD</h2>
+            <i class="fas fa-times"></i>
+        </div>
     <div id="map"></div>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcdvv5F6Ub6cqL644aR8VK3MW7YQcyCvE&callback=initMap">
     </script>
       <?php 
+      session_start();
          $con=mysqli_connect('localhost','root','','pickmafood'); 
     // Check connection 
       if (mysqli_connect_errno()) 
       { echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
 
-     $sql = "SELECT machineID,machineName,lat,lng FROM machine";
+    if(isset($_SESSION["user"]))
+    {
+           $sql = "SELECT machineID,machineName,lat,lng FROM machine";
      $result = mysqli_query($con,$sql);
      if (!$result) 
       {
@@ -46,6 +61,7 @@
               }
           }
       }
+    }
 mysqli_close($con); 
 ?>
     <script>
@@ -95,7 +111,7 @@ mysqli_close($con);
      </script>
 	<form action="prodVendLoc.php" method="post" onsubmit="return midCheck();">
     <input type="hidden" name="vName2" id="vid">
-    <br><br><input type="submit" id="sub" name="Done2">
+    <br><br><input type="submit" id="sub" name="Done2" value="Select">
   </form>
   <script>
     
