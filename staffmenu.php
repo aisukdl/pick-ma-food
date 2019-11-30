@@ -49,10 +49,11 @@
             ?>
         <div class="cont2">
             <div class="cont1">
+            <a href="viewlog.html">
                     <div class="menu">
                             <i class="far fa-file-alt fa-4x"></i>
                             <p>VIEW LOG</p>
-                    </div>
+                    </div></a>
                     <div class="menu">
                             <i class="fas fa-plus fa-3x"></i><br>
                             <p>ADD MACHINE</p>

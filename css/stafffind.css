@@ -16,7 +16,7 @@ body{
 
 h2{
     padding: 3%;
-    font-size: 1rem;
+    font-size: 2rem;
     margin-bottom: 10px;
 }
 
@@ -75,7 +75,8 @@ input[type=text]{
 
 .popup{
     background: #fff;
-    width:90%;
+    text-align: center;
+    width:100%;
 }
 .body-container{
     padding: 10%;
