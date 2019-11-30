@@ -12,6 +12,13 @@ body{
     box-shadow: rgba(0,0,0,0.2) 5px 5px 25px;
 }
 
+.body-container{
+    padding: 10%;
+    font-family: Montserrat;
+    font-weight: 500;  
+    font-size: 1.5rem;
+}
+
 h2{
     padding: 3%;
     font-size: 1rem;
