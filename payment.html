@@ -62,17 +62,16 @@
 
                          <form action="LinkConfirmPay.php" method = "GET">
                         <div  class="cont1">
-                                <div name = "pick" class="pickup">
-                                <i class="far fa-money-bill-alt fa-3x"></i>
-                                <br>
-                               <label> Pay on pick up </label>
-                               <input type="radio" name="pick" id="pick" value="pick"><br>
+                                <div class="pickup">
+                               <input type="radio" name="radio" id="pick" value="pick" checked>
+                                <label for="pick"> <i class="far fa-money-bill-alt fa-3x"></i>
+                                    <br>Pay on pick up </label>
                             </div>
                             
-                            <div name ="credit" class="creditcard">
-                                <i class="far fa-credit-card fa-3x"></i><br>
-                               <label>Credit/Debit</label>
-                             <input type="radio" name="credit" id="credit" value="credit"><br>
+                            <div class="creditcard">
+                               
+                             <input type="radio" name="radio" id="credit" value="credit">
+                                <label for="credit"> <i class="far fa-credit-card fa-3x"></i><br> Credit / Debit </label>
                             </div>
                         </div>
                          <input type="submit" name="sub"id="sub" value="CONFIRM PAYMENT" class="pay-btn">
