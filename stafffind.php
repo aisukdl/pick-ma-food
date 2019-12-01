@@ -120,18 +120,9 @@ mysqli_close($con);
     <br>
     <br>
   </form>
-
-  <form action="stafffind_db.php" method="post" onsubmit="return midCheck();">
-    <input type="hidden" name="vName3" id="vid2">
-      <input type="submit" name="DELETE1" value="Delete" class="delete-btn">
-    <br>
-    <br>
-  </form>
-
 </script>
   
   <div class="popup">
-    <br>
   <?php
    if(isset($_POST['vName2'])){
     //  session_start();
@@ -168,19 +159,18 @@ mysqli_close($con);
     ?>
     </div>
     
-    <div class="popup">
-    <br>
-    <!-- <p>products</p>
-    /*คิวรี่โปรดักของเครื่องมาตรงนี้จ้า*/<br> -->
-    <!-- <button type="button" name="EDIT" value="Edit" class="edit-btn" >Edit</button>
-
     <form action="stafffind_db.php" method="post" onsubmit="return midCheck();">
-      <input type="hidden" name="vName3" id="vid"> -->
-      <!-- <a href="stafffind_db.php"> -->
-      <!-- <button type="button" name="DELETE1" value="Delete" class="delete-btn" >Delete</button> -->
-      <!-- </a> -->
-      <!-- <br>
-    </form> -->
+    <br>
+      <input type="hidden" name="vName3" id="vid2">
+      <input type="submit" name="DELETE1" value="Delete" class="delete-btn">
+    </form>
+
+    <form action="staffEditMach.php" method="post" onsubmit="return midCheck();">
+    <input type="hidden" name="vName3" id="vid2">
+      <input type="submit" name="addProd" value="Edit" class="edit-btn" >
+    <br>
+    <br>
+    </form>
 
 <script>    
     function midCheck()
@@ -200,9 +190,5 @@ mysqli_close($con);
       alert("Are you sure to delete the machine?");
     }
     </script>
-  </div>
-
-  <div class="popup">
-    </div>
   </body>
 </html>

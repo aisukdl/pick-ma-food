@@ -12,29 +12,40 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,500,700&display=swap" rel="stylesheet">
     </head>
+
     <body>
+    <?php
+	$con = mysqli_connect("localhost","root","","pickmafood");
+	if (mysqli_connect_errno()) 
+	{ 
+    echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
+    ?>
         <div class="header">
             <h2>PICK MA FOOD</h2>
             <i class="fas fa-times"></i>
         </div>
         <div class="body-container">
                 <h2>Report</h2>
+                <div class="cont2">
+                <form action = "report_db.php" method="POST">
+                <p>Username: </p>
+                <input type="text" placeholder="your username" name="username" required></input></div>
+                <br>
                 <div class="cont1">
-                    <p>Topic</p>
-                    <form action="">
-                        <select name="topic">
-                            <!--เริ่มลูปตรงนี้ ตัวอย่างลูปตามข้างล่างเลยยย-->
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
-                            <!--จบลูปจ้า-->
-                        </select>
+                <br><p>Topic</p>
+		                <select name="category" class="form-control">
+			                <option value="pick">Type of report</option>
+			            <?php
+			            $sql = mysqli_query($con, "SELECT DISTINCT category From report");
+			                while ($row = mysqli_fetch_array($sql)){
+				                echo "<option value='". $row['category'] ."'>" .$row['category'] ."</option>" ;
+			                }
+                        ?>
+                        </select><br><br>
                 </div>
                 <div class="cont2">
                     <p>Details</p>
-                    <br>
-                    <textarea name="details" rows="10" cols="30">
+                    <textarea name="description" rows="10" cols="30">Please, give some specific detail...
                     </textarea>
                 </div>
                 <button type="submit" class="submit-btn">SEND</button>
