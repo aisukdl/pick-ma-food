@@ -75,8 +75,8 @@
                             <p>REPORT</p>
                     </div>
                     <div class="menu">
-                            <i class="fas fa-cog fa-4x"></i>
-                            <p>SETTINGS</p>
+                    <i class="fas fa-power-off fa-4x"></i>
+                            <p>LOGOUT</p>
                     </div>
             </div>
             
