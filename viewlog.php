@@ -15,9 +15,11 @@
     <body>
         <div class="header">
             <h2>View Log</h2>
-            <i class="fas fa-times"></i>
         </div>
-        
+        <a href="staffmenu.php">
+        <div class="fa-time">
+            <i class="fas fa-times"></i>
+        </div></a>
         <div class="table">
             <table>
             <thead>

@@ -16,10 +16,15 @@
     <!--////////////////////////////-->
     <body>
       <a href="staffmenu.php">
+          <div class="fa-time">
+          <i class="fas fa-times"></i>
+        </div>
+        </a>
         <div class="header">
             <h2>View Machine</h2>
-              <i class="fas fa-times"></i>
-        </div></a>
+              
+        </div>
+        
         <div class="body-container">
         <div class="map">
           Select Machine<br>
@@ -28,7 +33,7 @@
         
         <!-- item in machine box -->
         <script>
-          function midCheck2(){
+          function midCheck3(){
             alert('You clicked the top text');
           }
         </script>
@@ -161,7 +166,7 @@ mysqli_close($con);
     ?>
     </div>
     
-    <form action="stafffind_db.php" method="post" onsubmit="return midCheck();">
+    <form action="stafffind_db.php" method="post" onsubmit="return midCheck2();">
     <br>
       <input type="hidden" name="vName3" id="vid2">
       <input type="submit" name="DELETE1" value="Delete" class="delete-btn">
@@ -187,9 +192,18 @@ mysqli_close($con);
       }
       return true;
     }
-    <script>
-    function delAlert() {
-      alert("Are you sure to delete the machine?");
+
+    function midCheck2()
+    {
+     var check = document.getElementById('vid2').value;
+     // console.log("no"+check);
+      if(check=="")
+      {
+        // console.log("So done");      
+        alert("Please select vending machine again before click delete button."); 
+        return false;      
+      }
+      return true;
     }
     </script>
   </body>

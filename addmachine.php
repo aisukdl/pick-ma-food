@@ -15,10 +15,15 @@
     </head>
     <!-- //////////////////////////////////////////////////////// -->
   <body>
-    <h1>Add Machine</h1>
+    <div class="header">
+            <h1>Add Machine</h1>
+        </div>
+        <a href="staffmenu.php">
+        <div class="fa-time">
+            <i class="fas fa-times"></i>
+        </div></a>
     <form action="addMach_db.php" method="POST">
     <div class="body-container">
-        <br><br>
         <p>Machine Name</p>
         <input type="text" placeholder="character and number only" name="name" required>
         <br><br>
