@@ -84,17 +84,6 @@ h4{
     flex-direction: column;
 }
 
-.pickup{
-    width: 40%;
-    border: solid 1px #87C3BB;
-    margin:auto;
-}
-
-.creditcard{
-    width: 40%;
-    border: solid 1px #87C3BB;
-    margin:auto;
-}
 
 .pay-btn{
     background-color: #87C3BB; 
@@ -120,4 +109,38 @@ h4{
 
 .price{
     width:60%;
+}
+
+input[type=radio] {
+    display:none; 
+}
+
+/*
+  Change the look'n'feel of labels (which are adjacent to radiobuttons).
+  Add some margin, padding to label
+*/
+input[type=radio] + label {
+    display:inline-block;
+    padding: 4px 12px;
+    background-color: #fff;
+    border-color: ##87C3BB;
+}
+/*
+ Change background color for label next to checked radio button
+ to make it look like highlighted button
+*/
+input[type=radio]:checked + label { 
+   background-image: none;
+    background-color:#87C3BB;
+    color:#fff;
+}
+
+.card{
+    margin: auto;
+    width:40%;
+}
+
+.creditcard{
+    margin:auto;
+    width:40%;
 }
