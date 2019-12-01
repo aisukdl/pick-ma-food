@@ -34,9 +34,9 @@ if (mysqli_connect_errno())
 <!DOCTYPE html>
 <html>
 <body>
-	<form action="qrcodee.html">
+	<form action="qrcode.html">
 		<br><br> "Continue" to get QR code<br>
-		<a href="qrcodee.html"></a><button>Continue</button></a>
+		<a href="qrcode.html"></a><button>Continue</button></a>
 </form>
 </body>
 </html>
