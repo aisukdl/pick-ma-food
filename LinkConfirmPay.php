@@ -2,23 +2,28 @@
 <html>
 <body>
     <?php 
-     if(isset($_GET['sub'])) 
-     {
-        if(isset($_GET['pick']))
+   
+        if(isset($_GET['sub'])) 
+        { 
+        if($_GET['radio']=='pick')
 	    {
             
             header("Location:qrcode.php");
             
   
         }
-        elseif(isset($_GET['credit']))
+        elseif($_GET['radio']=='credit')
         {
          
             header("Location:creditcard.html");
         
         }
     }
-  
+
+   else
+   {
+       echo "error";
+   }
 ?>
 
 </body>
