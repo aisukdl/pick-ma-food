@@ -23,6 +23,10 @@ if(isset($_POST['vName3'])){
                       {
                         ?>
                       <?php 
+                      header("Location: deleted.html"); /* Redirect browser */
+                      
+                      /* Make sure that code below does not get executed when we redirect. */
+                      exit;
                       echo "Machine: ". $row['machineName']. " is deleted."; 
                       ?>
                       <?php
