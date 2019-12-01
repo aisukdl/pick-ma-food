@@ -33,7 +33,7 @@
         </div>
 
     <!--////////////////////////////-->
-    <div id="map"></div>
+    <!-- <div id="map"></div> -->
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcdvv5F6Ub6cqL644aR8VK3MW7YQcyCvE&callback=initMap">
     </script>
@@ -106,6 +106,7 @@ mysqli_close($con);
         marker.setAnimation(google.maps.Animation.BOUNCE);
         mID = locations[i][0];
         document.getElementById('vid').value = mID ;
+        document.getElementById('vid2').value = mID ;
         marker.setAnimation(null);
       }
     })(marker,i));
@@ -120,21 +121,14 @@ mysqli_close($con);
     <br>
   </form>
 
+  <form action="stafffind_db.php" method="post" onsubmit="return midCheck();">
+    <input type="hidden" name="vName3" id="vid2">
+      <input type="submit" name="DELETE1" value="Delete" class="delete-btn">
+    <br>
+    <br>
+  </form>
 
-  <script>    
-    function midCheck()
-    {
-     var check = document.getElementById('vid').value;
-     // console.log("no"+check);
-      if(check=="")
-      {
-        // console.log("So done");      
-        alert("Please select vending machine"); 
-        return false;      
-      }
-      return true;
-    }
-  </script>
+</script>
   
   <div class="popup">
     <br>
@@ -178,54 +172,37 @@ mysqli_close($con);
     <br>
     <!-- <p>products</p>
     /*คิวรี่โปรดักของเครื่องมาตรงนี้จ้า*/<br> -->
-    <form>
-    <a href="staffEditMach.php">
-    <button type="button" name="EDIT" value="Edit" class="edit-btn" >Edit</button></a>
-    <button type="button" name="DELETE1" value="Delete" class="delete-btn" onclick="delAlert()">Delete</button>
-    <br>
-    </form>
+    <!-- <button type="button" name="EDIT" value="Edit" class="edit-btn" >Edit</button>
 
+    <form action="stafffind_db.php" method="post" onsubmit="return midCheck();">
+      <input type="hidden" name="vName3" id="vid"> -->
+      <!-- <a href="stafffind_db.php"> -->
+      <!-- <button type="button" name="DELETE1" value="Delete" class="delete-btn" >Delete</button> -->
+      <!-- </a> -->
+      <!-- <br>
+    </form> -->
+
+<script>    
+    function midCheck()
+    {
+     var check = document.getElementById('vid').value;
+     // console.log("no"+check);
+      if(check=="")
+      {
+        // console.log("So done");      
+        alert("Please select vending machine"); 
+        return false;      
+      }
+      return true;
+    }
     <script>
     function delAlert() {
       alert("Are you sure to delete the machine?");
     }
     </script>
-    
-    <?php
-   if(isset($_POST['EDIT']) or isset($_POST['DELETE1'])){
-    //  session_start();
-      $con=mysqli_connect('localhost','root','','pickmafood'); 
-      // Check connection 
-      if (mysqli_connect_errno()) 
-        { echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-              $machID = $_POST['vName2'];
-              $sql = "SELECT * FROM machine WHERE machineID = '$machID'";
-              $res = mysqli_query($con,$sql);
-              if (!$res) 
-                {
-                die('Error: ' . mysqli_error($con)); } 
-              else
-                {
-                  if(isset($_POST['EDIT']))
-                    {
-                    while($row = mysqli_fetch_array($res))
-                      {?>
-                      <?php 
-                      echo "Machine: ". $row['machineName']. "<br> Machine Address: ". $row['lat']. ",". $row["lng"]; 
-                      ?>
-                      <?php
-                      }
-                    }
-                else if(isset($_POST['DELETE1']))
-                    {
-                      alert("Do You want to delete Mahine". $row['machineName']. "?");	
-                    }
-              }
-              mysqli_close($con);
-      }
-    ?>
-
-
   </div>
+
+  <div class="popup">
+    </div>
   </body>
 </html>
