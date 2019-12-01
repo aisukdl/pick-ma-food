@@ -27,6 +27,7 @@ if (mysqli_connect_errno())
 	{ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
 						?>
 						<a href="cart.php" class="button">Cart</a>
+						
 						 <?php
 					if(isset($_POST['vName2']))
 					{

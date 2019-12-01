@@ -27,15 +27,19 @@
             <body>
                 <div class="header">
                     <h2>PICK MA FOOD</h2>
+                  
                     <i class="fas fa-times"></i>
                 </div>
+               
                 <div class="machine">
-                    <div class="cont1">
+                     <div class="cont1">
                         <div class="order">
                             <h3>1</h3>
                         </div>
                         <div class="detail">
+                               
                             <h4>Machine Details</h4>
+                            
                         </div>
                     </div>
                     <div class="machine-details">
@@ -54,24 +58,31 @@
                             <div class="detail">
                                 <h4>Payment</h4>
                             </div>
-                        </div>
-                        <div class="cont1">
-                            <div class="pickup">
+                        </div> 
+
+                         <form action="LinkConfirmPay.php" method = "GET">
+                        <div  class="cont1">
+                                <div name = "pick" class="pickup">
                                 <i class="far fa-money-bill-alt fa-3x"></i>
                                 <br>
-                               
-                                <a href="qrcode.html">Pay on pick up</a>
+                               <label> Pay on pick up </label>
+                               <input type="radio" name="pick" id="pick" value="pick"><br>
                             </div>
                             
-                            <div class="creditcard">
-                                <i class="far fa-credit-card fa-3x"></i>
-                                <br>
-                                <a href="creditcard.html">Credit/Debit</a>
-        
+                            <div name ="credit" class="creditcard">
+                                <i class="far fa-credit-card fa-3x"></i><br>
+                               <label>Credit/Debit</label>
+                             <input type="radio" name="credit" id="credit" value="credit"><br>
                             </div>
                         </div>
-                        <p>use pick ma point</p>
-                        <button type="button" class="pay-btn">CONFIRM PAYMENT</button>
+                         <input type="submit" name="sub"id="sub" value="CONFIRM PAYMENT" class="pay-btn">
+
+                            </form>
+                            
+                                
+                        
+                    
+                        
                     </div>
                 </div>
                 

@@ -60,7 +60,7 @@ img {
 	</style>
 </head>
 <body>
- <a href="cart.php" class="button">Cart</a>
+ <a href="cart_.php" class="button">Cart</a>
 <?php
 session_start();
 $con=mysqli_connect('localhost','root','','pickmafood'); 
