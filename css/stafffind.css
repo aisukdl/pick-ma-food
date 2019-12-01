@@ -41,7 +41,7 @@ input[type=text]{
 }
 
 .fa-times{
-    position: absolute;
+    position: left;
     top: 10px;
 }
 

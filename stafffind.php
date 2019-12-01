@@ -15,9 +15,11 @@
 
     <!--////////////////////////////-->
     <body>
+      <a href="staffmenu.php">
         <div class="header">
             <h2>View Machine</h2>
-        </div>
+              <i class="fas fa-times"></i>
+        </div></a>
         <div class="body-container">
         <div class="map">
           Select Machine<br>

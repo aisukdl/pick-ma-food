@@ -49,31 +49,35 @@
             ?>
         <div class="cont2">
             <div class="cont1">
-            <a href="viewlog.html">
+            <a href="viewlog.php">
                     <div class="menu">
                             <i class="far fa-file-alt fa-4x"></i>
                             <p>VIEW LOG</p>
                     </div></a>
+                    <a href="addmachine.php">
                     <div class="menu">
                             <i class="fas fa-plus fa-3x"></i><br>
                             <p>ADD MACHINE</p>
-                    </div>
+                    </div></a>
             </div>
             <div class="cont1">
+            <a href="stafffind.php">
                     <div class="menu">
                             <i class="fas fa-search fa-3x"></i>
                             <p>VIEW MACHINE</p>
-                    </div>
+                    </div></a>
+                    <a href="addMachProd.php">
                     <div class="menu">
                             <i class="fas fa-box fa-4x"></i>
                             <p>PRODUCTS</p>
-                    </div>
+                    </div></a>
             </div>
             <div class="cont1">
+            <a href="report.php">
                     <div class="menu">
                             <i class="fas fa-exclamation-circle fa-4x"></i>
                             <p>REPORT</p>
-                    </div>
+                    </div></a>
                     <div class="menu">
                     <i class="fas fa-power-off fa-4x"></i>
                             <p>LOGOUT</p>

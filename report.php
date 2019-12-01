@@ -20,10 +20,14 @@
 	{ 
     echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
     ?>
+        
         <div class="header">
             <h2>PICK MA FOOD</h2>
-            <i class="fas fa-times"></i>
         </div>
+        <a href="staffmenu.php">
+        <div class="fa-time">
+            <i class="fas fa-times"></i>
+        </div></a>
         <div class="body-container">
                 <h2>Report</h2>
                 <div class="cont2">
