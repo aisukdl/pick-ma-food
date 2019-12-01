@@ -78,10 +78,11 @@
                             <i class="fas fa-exclamation-circle fa-4x"></i>
                             <p>REPORT</p>
                     </div></a>
+                    <a href="login.php">
                     <div class="menu">
                     <i class="fas fa-power-off fa-4x"></i>
                             <p>LOGOUT</p>
-                    </div>
+                    </div></a>
             </div>
             
         </div>

@@ -172,8 +172,9 @@ mysqli_close($con);
       <input type="submit" name="DELETE1" value="Delete" class="delete-btn">
     </form>
 
-    <form action="staffEditMach.php" method="post" onsubmit="return midCheck();">
-    <input type="hidden" name="vName3" id="vid2">
+    <form action="editmachine.php" method="post" onsubmit="return midCheck2();">
+    <input type="hidden" name="serialNumber" id="vid2">
+    <!-- <input type="text" name="serialNumber" /> -->
       <input type="submit" name="addProd" value="Edit" class="edit-btn" >
     <br>
     <br>

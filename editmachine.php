@@ -28,7 +28,7 @@
 </div>
 <div class="body-container">
 	<form action = "editmachine_db.php" method="POST">
-  <a href="staffmenu.php">
+  <a href="stafffind.php">
           <div class="fa-time">
           <i class="fas fa-times"></i>
         </div>
@@ -43,6 +43,7 @@
 			}
       ?>
     </select>
+    <input type="hidden" name="oldName" id = "vName4">
   <br>New Machine Name:<br><br>
     <input type="text" name="newName"><br><br>
 
