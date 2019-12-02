@@ -16,7 +16,7 @@
     <!-- //////////////////////////////////////////////////////// -->
   <body>
     <div class="header">
-            <h1>Add Machine</h1>
+            <h2>Add Machine</h2>
         </div>
         <a href="staffmenu.php">
         <div class="fa-time">
@@ -28,8 +28,7 @@
         <input type="text" placeholder="character and number only" name="name" required>
         <br><br>
         <p>Machine Location</p>
-    </div>
-    <div id="map" style="height: 400px; width: 80%; margin: auto; border: 1px;" ></div>
+        <div id="map" style="height: 400px; width: 80%; margin: auto; border: 1px;" ></div>
     <br><br>
 
     <script>
@@ -77,6 +76,8 @@
       <button type="submit" class="submit-btn">CONFIRM</button>
     </div> 
     </form>
+    </div>
+    
   <?php ?>
 </body>
 </html>
