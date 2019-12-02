@@ -72,7 +72,7 @@
                     </div></a>
             </div>
             <div class="cont1">
-            <a href="report.php">
+            <a href="notification.php">
                     <div class="menu">
                             <i class="fas fa-exclamation-circle fa-4x"></i>
                             <p>REPORT</p>
