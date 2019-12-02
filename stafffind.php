@@ -22,7 +22,6 @@
         </a>
         <div class="header">
             <h2>View Machine</h2>
-              
         </div>
         
         <div class="body-container">
