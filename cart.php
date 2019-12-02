@@ -52,7 +52,7 @@ if(!empty($_SESSION["shopping_cart"]))
 								{
 									$row = mysqli_fetch_array($res);
 									echo "<tr>";?>
-									<td><img src= "data:image/jpeg;base64,<?php echo base64_encode($row['image']);?>"></td>
+									<td><img src= "data:image/jpeg;base64,<?php echo base64_encode($row['image']);?>" class="image"></td>
 									<?php
 									echo "<td>". $row['brand']." ". $row['productName']. "</td>";
 									echo "<td><form method='post'><input type='number' name='quan' id='q' value='". $values['order_quan']. "' min='1' max=".$row["stock"]. "><br>";
