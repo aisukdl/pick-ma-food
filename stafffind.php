@@ -15,13 +15,14 @@
 
     <!--////////////////////////////-->
     <body>
-      <a href="staffmenu.php">
-          <div class="fa-time">
-          <i class="fas fa-times"></i>
-        </div>
-        </a>
+      
+        
         <div class="header">
             <h2>View Machine</h2>
+          <a href="staffmenu.php">
+          <div class="fa-time">
+          <i class="fas fa-times"></i>
+        </div></a>
         </div>
         
         <div class="body-container">
