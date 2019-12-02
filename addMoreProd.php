@@ -87,25 +87,40 @@
         <div class="fa-time">
             <i class="fas fa-times"></i>
         </div></a>
-
-        <form method="post">
-        <div class="body-container">
-            <p>Machine Name</p>
-            <!-- <input type="text" placeholder="character and number only" name="mname" required> -->
-            <select name="machineName" class="form-control">
-			                <option value="pick">select machine</option>
-			            <?php
-			            $sql = mysqli_query($con, "SELECT DISTINCT machineName From machine");
-			                while ($row = mysqli_fetch_array($sql)){
-				                echo "<option value='". $row['machineName'] ."'>" .$row['machineName'] ."</option>" ;
-			                }
-                        ?>
-            </select>
-            <button type="submit" class="edit-btn">SELECT</button><br><br>
-            <p>Products</p>
-            <a href="addMore.php">+ add more product</a>           
-        </div>
-        </form>
+        <div class="popup">
+  <?php
+   session_start();
+      $con=mysqli_connect('localhost','root','','pickmafood'); 
+      // Check connection 
+      if (mysqli_connect_errno()) 
+        { echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
+              $machName = $_SESSION['machineName'];
+              $sql = "SELECT * FROM machine WHERE machineName = '$machName'";
+              $res = mysqli_query($con,$sql);
+              if (!$res) 
+                {
+                die('Error: ' . mysqli_error($con)); } 
+              else
+                {
+                  if(mysqli_num_rows($res)>0)
+                    {
+                    // echo '<div class="row">';
+                    while($row = mysqli_fetch_array($res))
+                      {?>
+                      <?php 
+                      echo "Machine: ". $row['machineName']. "<br> Machine Address: ". $row['lat']. ",". $row["lng"]; 
+                      ?>
+                      <?php
+                      }
+                    }
+                else
+                    {
+                    echo "No machine is selected";	
+                    }
+              }
+              mysqli_close($con);
+    ?>
+    </div>
         
 <!-- <form action="addMachProd_db.php" method="post"> -->
 <?php

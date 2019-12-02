@@ -28,7 +28,7 @@
         <input type="text" placeholder="character and number only" name="name" required>
         <br><br>
         <p>Machine Location</p>
-        <div id="map" style="height: 400px; width: 80%; margin: auto; border: 1px;" ></div>
+        <div id="map" style="height: 300px; width: 80%; margin: auto; border: 1px;" ></div>
     <br><br>
 
     <script>

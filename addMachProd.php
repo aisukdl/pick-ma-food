@@ -230,13 +230,5 @@ if (mysqli_connect_errno())
 
 mysqli_close($con);
 ?>
-<div class="popup">
-<a href="cart.php" class="edit-btn">Add to machine</a></div>
-<!-- <form action="addMachProd_db.php" method="post">
-    <input type="hidden" name="pName" id="machineName">
-    <input type="hidden" name="vName3" id="machineName">
-    <button type="submit" class="submit-btn">CONFIRM</button>
-</form> -->
-
     </body>
 </html>
