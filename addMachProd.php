@@ -70,13 +70,16 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,500,700&display=swap" rel="stylesheet">
     </head>
-    <body>
+
     <?php
 	$con = mysqli_connect("localhost","root","","pickmafood");
 	if (mysqli_connect_errno()) 
 	{ 
     echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
     ?>
+
+    <body>
+    
         <div class="header">
             <h2>PICK MA FOOD</h2>
         </div>
@@ -84,6 +87,7 @@
         <div class="fa-time">
             <i class="fas fa-times"></i>
         </div></a>
+
         <form method="post">
         <div class="body-container">
             <p>Machine Name</p>
@@ -96,38 +100,25 @@
 				                echo "<option value='". $row['machineName'] ."'>" .$row['machineName'] ."</option>" ;
 			                }
                         ?>
-            </select><br><br>
-
+            </select><br>
+            <button type="submit" class="submit-btn">SELECT</button>
             <p>Products</p>
-            <a href="#">+ add more product</a>
-            <!--ลูปตรงนี้จ้า--> 
-            <!-- <select name="productName" class="form-control">
-			                <option value="pick">choose the machine</option>
-			            <?php
-			            // $sql = mysqli_query($con, "SELECT DISTINCT productName From product");
-			            //     while ($row = mysqli_fetch_array($sql)){
-				        //         echo "<option value='". $row['productName'] ."'>" .$row['productName'] ."</option>" ;
-			            //     }
-                        ?>
-            </select><br><br> -->
-            <!--จบลูปจ้า-->
-            <input type="hidden" name="vName2" id="machineName">
-            <!-- <button type="submit" class="submit-btn">CONFIRM</button> -->
+            <a href="#">+ add more product</a>            
         </div>
         </form>
         
-        <form action="addMachProd_db.php" method="post">
+<!-- <form action="addMachProd_db.php" method="post"> -->
 <?php
 // session_start();
 $con=mysqli_connect('localhost','root','','pickmafood'); 
 // Check connection 
 if (mysqli_connect_errno()) 
 	{ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-				// if(isset($_POST['Done2']))
-				// 	{
-				// 	$_POST["machName"] =$_POST['vName2'];
-				// 	unset($_POST["shopping_cart"]);
-                // 	}
+				if(isset($_POST['Done2']))
+					{
+					// $_POST["machName"] =$_POST['machineName'];
+					unset($_POST["shopping_cart"]);
+                	}
 				if(isset($_POST["machineName"]))
 				{
                 $machineName = $_POST["machineName"];
@@ -160,7 +151,7 @@ if (mysqli_connect_errno())
 								<input type="number" name="quantity" value="0" min="0" max="<?php echo $row['stock']; ?>">
 								<input type="hidden" name="id" value="<?php echo $row['productID']; ?>">
                                 <br>
-                                <input class="button" type="submit" name="submit2" value="Add to cart">
+                                <input class="button" type="submit" name="submit2" value="Add to machine">
                                 </form></div></div>
                             <!-- </div> -->
 
@@ -175,7 +166,8 @@ if (mysqli_connect_errno())
 				}
 				else
 				{
-					echo "<script> window.location.href = 'home.php';</script>";
+                    echo "Please, select machine.";
+					// echo "<script> window.location.href = 'addMachProd.php';</script>";
 				}
 				if(isset($_POST["test"]))
 				{
@@ -190,7 +182,7 @@ if (mysqli_connect_errno())
 													$item_array = array(
 													'item_id' => $_POST["id"],
 													'order_quan' => $_POST["quantity"]);
-													$_POST["shopping_cart"][$count] = $item_array;
+                                                    $_POST["shopping_cart"][$count] = $item_array;
 										}
 
 											
@@ -212,12 +204,12 @@ if (mysqli_connect_errno())
 
 mysqli_close($con);
 ?>
-
-<form action="addMachProd_db.php" method="post">
+<a href="cart.php" class="button">Cart</a>
+<!-- <form action="addMachProd_db.php" method="post">
     <input type="hidden" name="pName" id="machineName">
     <input type="hidden" name="vName3" id="machineName">
     <button type="submit" class="submit-btn">CONFIRM</button>
-</form>
+</form> -->
 
     </body>
 </html>
