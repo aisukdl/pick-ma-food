@@ -54,7 +54,7 @@
       font-size: 16px;
       margin: 4px 2px;
       cursor: pointer;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif
     }
         </style>
     <!-- ///////////////////////////////////// -->
@@ -66,7 +66,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/addmachine.css">
+        <link rel="stylesheet" href="css/stafffind.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,500,700&display=swap" rel="stylesheet">
     </head>
@@ -103,7 +103,7 @@
             </select><br>
             <button type="submit" class="submit-btn">SELECT</button>
             <p>Products</p>
-            <a href="#">+ add more product</a>            
+            <a href="addMore.php">+ add more product</a>            
         </div>
         </form>
         
@@ -151,7 +151,8 @@ if (mysqli_connect_errno())
 								<input type="number" name="quantity" value="0" min="0" max="<?php echo $row['stock']; ?>">
 								<input type="hidden" name="id" value="<?php echo $row['productID']; ?>">
                                 <br>
-                                <input class="button" type="submit" name="submit2" value="Add to machine">
+                                <input  type="submit" name="submit2" value="Add to machine" class="edit-btn">
+                                <input  type="submit" name="submit3" value="Delete" class="delete-btn">
                                 </form></div></div>
                             <!-- </div> -->
 
@@ -203,8 +204,8 @@ if (mysqli_connect_errno())
 				}
 
 mysqli_close($con);
-?>
-<a href="cart.php" class="button">Cart</a>
+?><div class="popup">
+<a href="cart.php" class="edit-btn">Add to machine</a></div>
 <!-- <form action="addMachProd_db.php" method="post">
     <input type="hidden" name="pName" id="machineName">
     <input type="hidden" name="vName3" id="machineName">
