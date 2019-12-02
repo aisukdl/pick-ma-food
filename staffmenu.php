@@ -15,7 +15,7 @@
     <body>
         <h2>Welcome!</h2>
         <div class="avatar">
-        <img src="images/download.jpg"></div>
+        <img src="images/download.jpg" width="100" height="100" ></div>
         <?php 
         session_start();
         $con=mysqli_connect('localhost','root','','pickmafood'); 
@@ -77,7 +77,7 @@
                             <i class="fas fa-exclamation-circle fa-4x"></i>
                             <p>REPORT</p>
                     </div></a>
-                    <a href="login.php">
+                    <a href="index.html">
                     <div class="menu">
                     <i class="fas fa-power-off fa-4x"></i>
                             <p>LOGOUT</p>
