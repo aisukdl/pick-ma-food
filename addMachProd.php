@@ -154,6 +154,10 @@ if (mysqli_connect_errno())
 								<input type="hidden" name="id" value="<?php echo $row['productID']; ?>">
                                 <br>
                                 <input  type="submit" name="submit2" value="Add to machine" class="edit-btn">
+                                </form>
+                                <form  action="deleteProd.php" method = "post">
+                                <!-- <input type="number" name="quantity" value="0" min="0" max="<?php echo $row['stock']; ?>"> -->
+								<input type="hidden" name="id" value="<?php echo $row['productID']; ?>">
                                 <input  type="submit" name="submit3" value="Delete" class="delete-btn">
                                 </form>
                                 <?php

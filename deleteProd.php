@@ -41,7 +41,7 @@ else
 		$productID = $_POST["id"];
 		// echo "<script> window.location.href = 'staffmenu.php';</script>";
 		// $machID = $_SESSION["machID"]
-		$quantity = $_POST["quantity"];
+		// $quantity = $_POST["quantity"];
 		$sql3="DELETE FROM machineProd  WHERE machineID='$machID' AND productID='$productID'"; 
             if (!mysqli_query($con,$sql3)) 
             { 
