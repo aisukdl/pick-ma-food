@@ -121,10 +121,15 @@ if (mysqli_connect_errno())
 				if(isset($_POST["machineName"]))
 				{
                 $machineName = $_POST["machineName"];
+                $_SESSION['machineName']=$machineName;
                 $sql2 = "SELECT * FROM machine WHERE machineName='$machineName'";
                 $res2 = mysqli_query($con,$sql2);
                 $row2 = mysqli_fetch_array($res2);
                 $machID = $row2["machineID"];
+                ?>
+                <form mthod="post">
+                <a href="addMoreProd.php?field=<?php echo $_SESSION['machineName'] ?>'">+ add more product</a> 
+                </form><?php
                 // $machID = $res2;
 				$sql = "SELECT p.*, mp.stock AS stock FROM product AS p,machineProd AS mp WHERE mp.machineID = '$machID' AND mp.productID = p.productID AND stock > 0";
 				$res = mysqli_query($con,$sql);
@@ -180,47 +185,41 @@ if (mysqli_connect_errno())
                     echo "Please, select machine.";
 					// echo "<script> window.location.href = 'addMachProd.php';</script>";
 				}
-				if(isset($_POST["test"]))
-				{
-					if(isset($_POST['submit2'])) 
-									{
-										if(isset($_POST["shopping_cart"]))
-										{
-											$item_array_id = array_column($_POST["shopping_cart"], "item_id");
-										if(!in_array($_POST["id"], $item_array_id))
-											{
-												$count = count($_POST["shopping_cart"]);
-													$item_array = array(
-													'item_id' => $_POST["id"],
-													'order_quan' => $_POST["quantity"]);
-                                                    $_POST["shopping_cart"][$count] = $item_array;
-										}
+				// if(isset($_POST["test"]))
+				// {
+				// 	if(isset($_POST['submit2'])) 
+				// 					{
+				// 						if(isset($_POST["shopping_cart"]))
+				// 						{
+				// 							$item_array_id = array_column($_POST["shopping_cart"], "item_id");
+				// 						if(!in_array($_POST["id"], $item_array_id))
+				// 							{
+				// 								$count = count($_POST["shopping_cart"]);
+				// 									$item_array = array(
+				// 									'item_id' => $_POST["id"],
+				// 									'order_quan' => $_POST["quantity"]);
+                //                                     $_POST["shopping_cart"][$count] = $item_array;
+				// 						}
 
 											
-											else
-											{
-												echo '<script>alert("Item Already Added")</script>';
-											}
-										}
-							}
-					else
-										{
-											$item_array = array('item_id' => $_POST["prodID"],
-																'order_quan' => 1);
-											$_POST["shopping_cart"][0] = $item_array;
-											//unset($_POST["prodID"]);
-										}
-					unset($_POST["test"]);
-				}
+				// 							else
+				// 							{
+				// 								echo '<script>alert("Item Already Added")</script>';
+				// 							}
+				// 						}
+				// 			}
+				// 	else
+				// 						{
+				// 							$item_array = array('item_id' => $_POST["prodID"],
+				// 												'order_quan' => 1);
+				// 							$_POST["shopping_cart"][0] = $item_array;
+				// 							//unset($_POST["prodID"]);
+				// 						}
+				// 	unset($_POST["test"]);
+				// }
 
 mysqli_close($con);
 ?>
-    <!-- <Form action="addMoreProd.php" method="post"> -->
-        <!-- <input type="hidden" name="machineName" id="$machineName"> -->
-        <!-- <input type="button" onClick="window.location='addMoreProd.php?var=<?php echo $machineName ?>'"> -->
-        <br>
-        <a href="addMoreProd.php?var=<?php echo $_POST['machineName'] ?>'">+ add more product</a> 
-     <!-- </form>   -->
      </div>
     </body>
 </html>

@@ -71,13 +71,6 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,500,700&display=swap" rel="stylesheet">
     </head>
 
-    <?php
-	$con = mysqli_connect("localhost","root","","pickmafood");
-	if (mysqli_connect_errno()) 
-	{ 
-    echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-    ?>
-
     <body>
     
         <div class="header">
