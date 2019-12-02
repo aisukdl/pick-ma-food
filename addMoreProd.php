@@ -83,7 +83,7 @@
         <div class="header">
             <h2>PICK MA FOOD</h2>
         </div>
-        <a href="staffmenu.php">
+        <a href="addMachProd.php">
         <div class="fa-time">
             <i class="fas fa-times"></i>
         </div></a>
@@ -94,7 +94,7 @@
       // Check connection 
       if (mysqli_connect_errno()) 
         { echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-              $machName = $_SESSION['machineName'];
+              $machName = $_POST['machineName'];
               $sql = "SELECT * FROM machine WHERE machineName = '$machName'";
               $res = mysqli_query($con,$sql);
               if (!$res) 
@@ -124,25 +124,27 @@
         
 <!-- <form action="addMachProd_db.php" method="post"> -->
 <?php
-session_start();
+// session_start();
 $con=mysqli_connect('localhost','root','','pickmafood'); 
 // Check connection 
 if (mysqli_connect_errno()) 
 	{ echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-				if(isset($_POST['Done2']))
-					{
-					// $_POST["machName"] =$_POST['machineName'];
-					unset($_POST["shopping_cart"]);
-                	}
-				if(isset($_POST["machineName"]))
+				// if(isset($_POST['Done2']))
+				// 	{
+				// 	// $_POST["machName"] =$_POST['machineName'];
+				// 	unset($_POST["shopping_cart"]);
+                // 	}
+				if(isset($_SESSION["machineName"]))
 				{
-                $machineName = $_POST["machineName"];
+                $machineName = $_SESSION["machineName"];
                 $sql2 = "SELECT * FROM machine WHERE machineName='$machineName'";
                 $res2 = mysqli_query($con,$sql2);
                 $row2 = mysqli_fetch_array($res2);
                 $machID = $row2["machineID"];
                 // $machID = $res2;
-				$sql = "SELECT p.*, mp.stock AS stock FROM product AS p,machineProd AS mp WHERE mp.machineID = '$machID' AND mp.productID = p.productID AND stock > 0";
+                // $sql = "SELECT p.*, mp.stock AS stock FROM product AS p,machineProd AS mp WHERE mp.machineID = '$machID' AND mp.productID = p.productID AND stock > 0";
+                // $sql = "SELECT p.*, mp.stock FROM product AS p,machineProd AS mp WHERE stock > 0";
+                $sql = "SELECT DISTINCT p.* FROM product AS p, machineprod AS mp WHERE p.productID NOT IN (SELECT productID FROM machineprod AS mp WHERE mp.machineID = '$machID')";
 				$res = mysqli_query($con,$sql);
 				if (!$res) 
 					{
@@ -169,35 +171,11 @@ if (mysqli_connect_errno())
 								<input type="hidden" name="id" value="<?php echo $row['productID']; ?>">
                                 <br>
                                 <input  type="submit" name="submit2" value="Add to machine" class="edit-btn">
-                                <input  type="submit" name="submit3" value="Delete" class="delete-btn">
                                 </form>
-                                <?php
-                                
-                                // $submit2=$_POST["submit2"];
-                                // if(isset($submit2)){
-                                //     $productID = $_POST["id"];
-                                //     echo "<script> window.location.href = 'staffmenu.php';</script>";
-                                
-                                // $quantity = $_POST["quantity"];
-                                // echo " Product added". $machID. $productID. $quantity;}?>
                                  </div></div>
-                                
-                                
-                            <!-- </div> -->
 
                             <?php
-                                
-                            //     $sql3="UPDATE machineprod SET stock= stock+'$quantity' WHERE machineID='$machID' AND productID='$productID'"; 
-                            //     if (!mysqli_query($con,$sql3)) 
-                            //     { 
-                            //     die('Error: ' . mysqli_error($con));
-                            //  exit;} 
-                            //     else
-                            //     {
-                            //         echo " Product added". $machID. $productID. $quantity;
-                            //     }
                                 }
-								// }
 							}
 					else
 							{
@@ -245,5 +223,6 @@ if (mysqli_connect_errno())
 
 mysqli_close($con);
 ?>
+
     </body>
 </html>

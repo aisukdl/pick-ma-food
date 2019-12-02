@@ -102,8 +102,7 @@
                         ?>
             </select>
             <button type="submit" class="edit-btn">SELECT</button><br><br>
-            <p>Products</p>
-            <a href="addMore.php">+ add more product</a>            
+              <p>Products</p>                 
         </div>
         </form>
         
@@ -234,5 +233,11 @@ if (mysqli_connect_errno())
 
 mysqli_close($con);
 ?>
+    <div class="body-container">
+            <Form action="addMoreProd.php" method="post">
+            <a href="addMoreProd.php?varname=<?php echo machine ?>">+ add more product</a> 
+            </Form>
+                       
+        </div>
     </body>
 </html>
