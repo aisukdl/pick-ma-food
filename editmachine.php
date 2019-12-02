@@ -24,7 +24,7 @@
 ?>
 <body>
 <div class="header">
-  <h1>Edit Machine</h1> 
+  <h2>Edit Machine</h2> 
 </div>
 <div class="body-container">
 	<form action = "editmachine_db.php" method="POST">
