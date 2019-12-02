@@ -109,7 +109,7 @@
         
 <!-- <form action="addMachProd_db.php" method="post"> -->
 <?php
-// session_start();
+session_start();
 $con=mysqli_connect('localhost','root','','pickmafood'); 
 // Check connection 
 if (mysqli_connect_errno()) 
@@ -148,7 +148,8 @@ if (mysqli_connect_errno())
 								</div>
                                 <br><div class = add> <div class="price"> <?php echo $row['price']; ?> &nbsp;THB</div><br>
                                 
-								<form  method = "post">
+								<form  action="addMachProd_db.php" method = "post">
+                                <?php $_SESSION['machineID'] = $machID;?>
 								<input type="number" name="quantity" value="0" min="0" max="<?php echo $row['stock']; ?>">
 								<input type="hidden" name="id" value="<?php echo $row['productID']; ?>">
                                 <br>
@@ -158,13 +159,13 @@ if (mysqli_connect_errno())
                                 <?php
                                 
                                 // $submit2=$_POST["submit2"];
-                                if(isset($submit2)){
-                                    $productID = $_POST["id"];
-                                    echo "<script> window.location.href = 'staffmenu.php';</script>";
+                                // if(isset($submit2)){
+                                //     $productID = $_POST["id"];
+                                //     echo "<script> window.location.href = 'staffmenu.php';</script>";
                                 
-                                $quantity = $_POST["quantity"];
-                                echo " Product added". $machID. $productID. $quantity;}?>
-                                </div></div>
+                                // $quantity = $_POST["quantity"];
+                                // echo " Product added". $machID. $productID. $quantity;}?>
+                                 </div></div>
                                 
                                 
                             <!-- </div> -->
