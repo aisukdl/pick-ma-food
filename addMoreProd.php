@@ -94,7 +94,7 @@
       // Check connection 
       if (mysqli_connect_errno()) 
         { echo "Failed to connect to MySQL: " . mysqli_connect_error(); } 
-              $machName = $_POST['machineName'];
+              $machName = $_SESSION['machineName'];
               $sql = "SELECT * FROM machine WHERE machineName = '$machName'";
               $res = mysqli_query($con,$sql);
               if (!$res) 
@@ -165,7 +165,7 @@ if (mysqli_connect_errno())
 								</div>
                                 <br><div class = add> <div class="price"> <?php echo $row['price']; ?> &nbsp;THB</div><br>
                                 
-								<form  action="addMachProd_db.php" method = "post">
+								<form  action="addMore_db.php" method = "post">
                                 <?php $_SESSION['machineID'] = $machID;?>
 								<input type="number" name="quantity" value="0" min="0" max="<?php echo $row['stock']; ?>">
 								<input type="hidden" name="id" value="<?php echo $row['productID']; ?>">

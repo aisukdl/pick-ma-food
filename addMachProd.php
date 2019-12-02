@@ -102,8 +102,8 @@
                         ?>
             </select>
             <button type="submit" class="edit-btn">SELECT</button><br><br>
-              <p>Products</p>                 
-        </div>
+              <p>Products</p>          
+
         </form>
         
 <!-- <form action="addMachProd_db.php" method="post"> -->
@@ -159,15 +159,6 @@ if (mysqli_connect_errno())
 								<input type="hidden" name="id" value="<?php echo $row['productID']; ?>">
                                 <input  type="submit" name="submit3" value="Delete" class="delete-btn">
                                 </form>
-                                <?php
-                                
-                                // $submit2=$_POST["submit2"];
-                                // if(isset($submit2)){
-                                //     $productID = $_POST["id"];
-                                //     echo "<script> window.location.href = 'staffmenu.php';</script>";
-                                
-                                // $quantity = $_POST["quantity"];
-                                // echo " Product added". $machID. $productID. $quantity;}?>
                                  </div></div>
                                 
                                 
@@ -175,15 +166,6 @@ if (mysqli_connect_errno())
 
                             <?php
                                 
-                            //     $sql3="UPDATE machineprod SET stock= stock+'$quantity' WHERE machineID='$machID' AND productID='$productID'"; 
-                            //     if (!mysqli_query($con,$sql3)) 
-                            //     { 
-                            //     die('Error: ' . mysqli_error($con));
-                            //  exit;} 
-                            //     else
-                            //     {
-                            //         echo " Product added". $machID. $productID. $quantity;
-                            //     }
                                 }
 								// }
 							}
@@ -233,11 +215,12 @@ if (mysqli_connect_errno())
 
 mysqli_close($con);
 ?>
-    <div class="body-container">
-            <Form action="addMoreProd.php" method="post">
-            <a href="addMoreProd.php?varname=<?php echo machine ?>">+ add more product</a> 
-            </Form>
-                       
-        </div>
+    <!-- <Form action="addMoreProd.php" method="post"> -->
+        <!-- <input type="hidden" name="machineName" id="$machineName"> -->
+        <!-- <input type="button" onClick="window.location='addMoreProd.php?var=<?php echo $machineName ?>'"> -->
+        <br>
+        <a href="addMoreProd.php?var=<?php echo $_POST['machineName'] ?>'">+ add more product</a> 
+     <!-- </form>   -->
+     </div>
     </body>
 </html>

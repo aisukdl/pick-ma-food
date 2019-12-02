@@ -52,7 +52,7 @@ else
             {?>
 				<div class="content">
 					<br><br>
-									<div class = "brand"> <?php echo  " Product is added"; ?> </div><br>
+									<div class = "brand"> <?php echo  " Product is deleted"; ?> </div><br>
 									<!-- <div class = "name"> <?php echo $row['productName']; ?></div> -->
 								</div>
                 <!-- echo " Product added". $machID. $productID. $quantity; -->
