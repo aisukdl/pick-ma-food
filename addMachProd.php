@@ -100,8 +100,8 @@
 				                echo "<option value='". $row['machineName'] ."'>" .$row['machineName'] ."</option>" ;
 			                }
                         ?>
-            </select><br>
-            <button type="submit" class="submit-btn">SELECT</button>
+            </select>
+            <button type="submit" class="edit-btn">SELECT</button><br><br>
             <p>Products</p>
             <a href="addMore.php">+ add more product</a>            
         </div>
@@ -146,18 +146,42 @@ if (mysqli_connect_errno())
 									<div class = "brand"> <?php echo  $row['brand']; ?> </div>
 									<div class = "name"> <?php echo $row['productName']; ?></div>
 								</div>
-								<br><div class = add> <div class="price"> <?php echo $row['price']; ?> &nbsp;THB</div><br>
+                                <br><div class = add> <div class="price"> <?php echo $row['price']; ?> &nbsp;THB</div><br>
+                                
 								<form  method = "post">
 								<input type="number" name="quantity" value="0" min="0" max="<?php echo $row['stock']; ?>">
 								<input type="hidden" name="id" value="<?php echo $row['productID']; ?>">
                                 <br>
                                 <input  type="submit" name="submit2" value="Add to machine" class="edit-btn">
                                 <input  type="submit" name="submit3" value="Delete" class="delete-btn">
-                                </form></div></div>
+                                </form>
+                                <?php
+                                
+                                // $submit2=$_POST["submit2"];
+                                if(isset($submit2)){
+                                    $productID = $_POST["id"];
+                                    echo "<script> window.location.href = 'staffmenu.php';</script>";
+                                
+                                $quantity = $_POST["quantity"];
+                                echo " Product added". $machID. $productID. $quantity;}?>
+                                </div></div>
+                                
+                                
                             <!-- </div> -->
 
-								<?php
-								}
+                            <?php
+                                
+                            //     $sql3="UPDATE machineprod SET stock= stock+'$quantity' WHERE machineID='$machID' AND productID='$productID'"; 
+                            //     if (!mysqli_query($con,$sql3)) 
+                            //     { 
+                            //     die('Error: ' . mysqli_error($con));
+                            //  exit;} 
+                            //     else
+                            //     {
+                            //         echo " Product added". $machID. $productID. $quantity;
+                            //     }
+                                }
+								// }
 							}
 					else
 							{
@@ -204,7 +228,8 @@ if (mysqli_connect_errno())
 				}
 
 mysqli_close($con);
-?><div class="popup">
+?>
+<div class="popup">
 <a href="cart.php" class="edit-btn">Add to machine</a></div>
 <!-- <form action="addMachProd_db.php" method="post">
     <input type="hidden" name="pName" id="machineName">

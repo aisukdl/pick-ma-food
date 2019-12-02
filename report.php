@@ -24,7 +24,7 @@
         <div class="header">
             <h2>PICK MA FOOD</h2>
         </div>
-        <a href="staffmenu.php">
+        <a href="home.php">
         <div class="fa-time">
             <i class="fas fa-times"></i>
         </div></a>

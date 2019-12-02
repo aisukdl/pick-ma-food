@@ -15,8 +15,7 @@
     <body>
         <h2>Welcome!</h2>
         <div class="avatar">
-                /*คิวรี่รูป*/
-        </div>
+        <img src="images/download.jpg"></div>
         <?php 
         session_start();
         $con=mysqli_connect('localhost','root','','pickmafood'); 

@@ -36,7 +36,7 @@
               <a class="nav-link" href="cart.php">My Cart</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Report</a> <!--unn's report link-->
+              <a class="nav-link" href="report.php">Report</a> <!--unn's report link-->
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Logout</a>
